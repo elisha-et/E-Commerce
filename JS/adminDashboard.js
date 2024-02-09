@@ -49,6 +49,8 @@ function displayProduct(){
          <p class = "pname">${product.name}</p>
          <p class = "pprice">$${product.price}</p>
          <p class = "pstock">Stock: ${product.quantity}</p>
+         <button onclick="editProduct('${product.name}')" class="editProduct">Edit Product</button>
+         <button onclick="deleteProduct('${product.name}')" class="deleteProduct">Delete Product</button>
          `
  
  productList.appendChild(listItem)
@@ -56,3 +58,34 @@ function displayProduct(){
  }
  
  displayProduct();
+
+ function deleteEmployee(id){
+    const confirmAction = confirm("Are you sure you want to delete?");
+    if(confirmAction){
+        let employees = JSON.parse(localStorage.getItem("employees")) || [];
+        employees = employees.filter((employee)=>employee.id !== id);
+        localStorage.setItem("employees",JSON.stringify(employees));
+        displayEmployee();
+    }
+}
+
+function editEmployee(id){
+    const confirmAction = confirm("Are you sure you want to make a change?");
+    if(confirmAction){
+        let employees = JSON.parse(localStorage.getItem("employees")) || [];
+       const employee = employees.find((employee)=>employee.id === id);
+       if(employee){
+        const empName = prompt("enter the new employee name: ",employee.name);
+        const newPosition = prompt("enter the new employee position: ",employee.position);
+
+        if(empName && newPosition){
+            employee.name = empName;
+            employee.position = newPosition;
+            localStorage.setItem("employees",JSON.stringify(employees));
+            displayEmployee();
+        }
+       }else{
+        alert("No such employee")
+       }
+    }
+}
