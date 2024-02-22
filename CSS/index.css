@@ -132,48 +132,9 @@ nav .end ul li{
     font-size: 20px;
 }
 
-.main .products #productList .pstock{
+.main .products #productList .pstock, .main .products #productList .edit, .main .products #productList .delete{
     display: none;
 }
-  
-/* .slider-container {
-    position: relative;
-    margin: auto;
-    margin-top: 50px;
-}
-  
-.slider-container .slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-  
-.slider-container .slides img {
-    width: 500px;
-    margin-right: 200px;
-}
-  
-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px;
-    cursor: pointer;
-}
-  
-button:hover {
-    background-color: #2980b9;
-}
-  
-button:nth-child(1) {
-    left: 10px;
-}
-  
-button:nth-child(2) {
-    right: 10px;
-} */
   
 .empty{
     height: 20px;

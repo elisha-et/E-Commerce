@@ -85,6 +85,20 @@ nav .end ul li{
     font-size: 20px;
 }
 
+.container #productList .button{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container #productList .edit, .container #productList .delete{
+    padding: 3px;
+    background-color: rgb(230, 230, 230);
+    border: none;
+    border-radius: 3px;
+    outline: 1px black solid;
+}
+
 .empty{
     height: 20px;
 }
