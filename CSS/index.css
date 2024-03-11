@@ -51,6 +51,19 @@ nav .end ul{
     gap: 30px;
 }
 
+nav .end .cart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .end .cart p{
+    position: absolute;
+    top: 35px;
+    right: 101px;
+}
+
 nav .end ul li{
     font-size: 20px;
 }
@@ -90,6 +103,7 @@ nav .end ul li{
 
 .main{
     margin-top: 20px;
+    padding-bottom: 20px;
 }
 
 .main .text{

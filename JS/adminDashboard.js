@@ -7,6 +7,7 @@ function addProduct(event) {
 if(productName && productQuantity && productPrice && productImage ){
 
 const product = {
+id:generateId(),
 name: productName,
 quantity: productQuantity,
 price: productPrice,
@@ -24,6 +25,9 @@ displayProduct();
 }
 }
 
+function generateId(){
+    return "_"+Math.random().toString(36).substring(2,9)
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     // This code will run when the DOM is fully loaded
@@ -50,8 +54,9 @@ function displayProduct(){
          <p class = "pprice">$${product.price}</p>
          <p class = "pstock">Stock: ${product.quantity}</p>
          <div class="button">
-         <button onclick="editProduct('${product.name}')" class="edit">Edit Product</button>
-         <button onclick="deleteProduct('${product.name}')" class="delete">Delete Product</button>
+         <button onclick="addCart('${product.id}')" class="add">Add to Cart</button>
+         <button onclick="editProduct('${product.id}')" class="edit">Edit Product</button>
+         <button onclick="deleteProduct('${product.id}')" class="delete">Delete Product</button>
          </div>
          `
  
@@ -61,21 +66,32 @@ function displayProduct(){
  
  displayProduct();
 
- function deleteProduct(name){
+ function deleteProduct(id){
     const confirmAction = confirm("Are you sure you want to delete the product?");
     if(confirmAction){
         let products = JSON.parse(localStorage.getItem("products")) || [];
-        products = products.filter((product)=>product.name !== name);
+        products = products.filter((product)=>product.id !== id);
         localStorage.setItem("products",JSON.stringify(products));
         displayProduct();
     }
 }
 
-function editProduct(name){
+function addCart(id){
+    const confirmAction = confirm("Are you sure you want to add to cart?");
+    if(confirmAction){
+        let products = JSON.parse(localStorage.getItem("cart")) || [];
+        products = products.filter((product)=>product.id === id);
+        localStorage.setItem("cart",JSON.stringify(products));
+        displayProduct();
+        // TODO add counter function
+    }
+}
+
+function editProduct(id){
     const confirmAction = confirm("Are you sure you want to edit the product?");
     if(confirmAction){
         let products = JSON.parse(localStorage.getItem("products")) || [];
-       const product = products.find((product)=>product.name === name);
+       const product = products.find((product)=>product.id === id);
        if(product){
         const newName = prompt("Enter the new product name: ",product.name);
         const newQuantity = prompt("Enter the new product quantity: ",product.quantity);

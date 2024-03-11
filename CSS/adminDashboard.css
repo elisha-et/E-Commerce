@@ -69,6 +69,7 @@ nav .end ul li{
     gap: 20px;
     list-style: none;
     margin-left: 8px;
+    padding-bottom: 20px;
 }
 
 #productList li{
@@ -91,14 +92,14 @@ nav .end ul li{
     justify-content: space-around;
 }
 
+.container #productList .button .add{
+    display: none;
+}
+
 .container #productList .edit, .container #productList .delete{
     padding: 3px;
     background-color: rgb(230, 230, 230);
     border: none;
     border-radius: 3px;
     outline: 1px black solid;
-}
-
-.empty{
-    height: 20px;
 }
