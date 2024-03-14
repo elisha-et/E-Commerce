@@ -76,17 +76,6 @@ function displayProduct(){
     }
 }
 
-function addCart(id){
-    const confirmAction = confirm("Are you sure you want to add to cart?");
-    if(confirmAction){
-        let products = JSON.parse(localStorage.getItem("cart")) || [];
-        products = products.filter((product)=>product.id === id);
-        localStorage.setItem("cart",JSON.stringify(products));
-        displayProduct();
-        // TODO add counter function
-    }
-}
-
 function editProduct(id){
     const confirmAction = confirm("Are you sure you want to edit the product?");
     if(confirmAction){
